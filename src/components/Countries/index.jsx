@@ -12,6 +12,7 @@ import {
 import { Link } from "react-router-dom"
 import { ShowCountries } from '../../graphql/queries/countries'
 import { List } from '../core/List'
+import { Overlay } from '../core/Overlay'
 
 export const Countries = withApollo(({
   client,
@@ -42,7 +43,7 @@ export const Countries = withApollo(({
     getCountries()
   }, [])
 
-  if (loading) return <p>...carregando</p>
+  if (loading) return <Overlay isVisible />
 
   return (
     <Row className="mt-2">

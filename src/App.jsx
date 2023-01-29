@@ -4,7 +4,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom"
-import './App.css'
+import './styles/App.css'
 import { Countries } from './components/Countries'
 import { Header } from './components/Header'
 import { Country } from './components/Country'

@@ -1,0 +1,71 @@
+.loading-letters {
+  color: #fff;
+  font-size: 16pt;
+  display: inline;
+  font-weight: bold;
+  letter-spacing: 4px;
+  animation-name: bounce;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.loading {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+}
+
+.loading-letters:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.loading-letters:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.loading-letters:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.loading-letters:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.loading-letters:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.loading-letters:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.loading-letters:nth-child(8) {
+  animation-delay: 0.8s;
+}
+.loading-letters:nth-child(9) {
+  animation-delay: 1s;
+}
+.loading-letters:nth-child(10) {
+  animation-delay: 1.2s;
+}
+.loading-letters:nth-child(11) {
+  animation-delay: 1.4s;
+}
+.loading-letters:nth-child(12) {
+  animation-delay: 1.6s;
+}
+.loading-letters:nth-child(13) {
+  animation-delay: 1.8s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  80%,
+  100% {
+    transform: translateY(0px);
+  }
+}
