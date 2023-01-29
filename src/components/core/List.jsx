@@ -1,17 +1,17 @@
 import { v4 as uuid } from 'uuid'
 
-export const Languages = ({
-  languages,
+export const List = ({
+  items,
 }) => (
   <ul>
     {
-      languages.map(language => (
+      items.map(language => (
         <li key={uuid()}>{language.name}</li>
       ))
     }
   </ul>
 )
 
-Languages.defaultProps = {
-  languages: []
+List.defaultProps = {
+  items: []
 }

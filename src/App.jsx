@@ -7,6 +7,7 @@ import {
 import './App.css'
 import { Countries } from './components/Countries'
 import { Header } from './components/Header'
+import { Country } from './components/Country'
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
         <Router>
           <Routes>
             <Route exact path="/" element={<Countries />} />
-            <Route path="/country/:code" element={() => console.log('ok')} />
+            <Route path="/country/:code" element={<Country />} />
           </Routes>
         </Router>
         

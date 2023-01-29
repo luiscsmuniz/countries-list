@@ -3,9 +3,7 @@ import { withApollo } from '@apollo/client/react/hoc'
 import { v4 as uuid } from 'uuid'
 import {
   Card,
-  CardBody,
   CardTitle,
-  CardText,
   Button,
   CardSubtitle,
   Row,
@@ -13,9 +11,11 @@ import {
 } from 'reactstrap'
 import { Link } from "react-router-dom"
 import { ShowCountries } from '../../graphql/queries/countries'
-import { Languages } from '../core/Languages'
+import { List } from '../core/List'
 
-export const Countries = withApollo(({ client, ...props }) => {
+export const Countries = withApollo(({
+  client,
+}) => {
   const [loading, setLoading] = useState(true)
   const [countries, setCountries] = useState([])
 
@@ -36,14 +36,14 @@ export const Countries = withApollo(({ client, ...props }) => {
       })
   
       setCountries(data.countries)
+      setLoading(false)
     }
 
-    const execute = async () => {
-      await getCountries()
-    }
-    
-    execute()
+    getCountries()
   }, [])
+
+  if (loading) return <p>...carregando</p>
+
   return (
     <Row className="mt-2">
       {countries.map((country) => (
@@ -65,10 +65,10 @@ export const Countries = withApollo(({ client, ...props }) => {
               {country.capital && (<li>Capital: {country.capital} </li>)}
               {country.currency && (<li>Currency: {country.currency} </li>)}
               {country.languages.length > 0 && (
-                <li>Languages: <Languages languages={country.languages} /></li>
+                <li>Languages: <List items={country.languages} /></li>
               )}
             </ul>
-            <Button tag={Link} to={`/country/${country.code}`}>
+            <Button color='dark' tag={Link} to={`/country/${country.code}`}>
               Details
             </Button>
           </Card>
@@ -77,7 +77,3 @@ export const Countries = withApollo(({ client, ...props }) => {
     </Row>
   )
 })
-
-Countries.defaultProps = {
-  client: () => {},
-}

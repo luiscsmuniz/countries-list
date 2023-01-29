@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
-export const Country = (types) => {
+export const ShowCountry = (types) => {
   const query = gql(`
-    query Country($code: String!){
+    query Country($code: ID!){
       country(code: $code) {
         code
         ${types === undefined ? '' : types.join(' ')}
